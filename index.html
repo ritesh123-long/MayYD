@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>YouTube Music — Search & Download</title>
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <header>
+      <div class="brand" aria-hidden="true">
+        <div class="logo">YT</div>
+        <div>
+          <h1 class="title">YouTube Music</h1>
+          <p class="subtitle">Search & download — mobile / tablet / desktop</p>
+        </div>
+      </div>
+
+      <div class="search-wrap" role="search" aria-label="Search songs">
+        <div class="search-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <input id="q" placeholder="Search artist, song or album — e.g. Arijit Singh Tum Hi Ho" aria-label="Search query" />
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button id="go" class="btn" title="Search">Search</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="topbar">
+        <div class="muted" id="stats" aria-live="polite">Type a search to begin</div>
+
+        <div class="controls-right">
+          <label class="small">Max
+            <input id="maxResults" type="number" min="1" max="50" value="10" />
+          </label>
+
+          <label class="small">Sort
+            <select id="sort">
+              <option value="">Relevance</option>
+              <option value="views_desc">Views ⬇</option>
+              <option value="views_asc">Views ⬆</option>
+              <option value="duration_desc">Duration ⬇</option>
+              <option value="duration_asc">Duration ⬆</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div id="results" class="grid" role="list" aria-live="polite"></div>
+
+      <div class="bottom-row">
+        <button id="loadMore" class="small hidden">Load more</button>
+        <div id="loading" class="muted hidden">Loading…</div>
+        <div id="error" class="muted hidden"></div>
+      </div>
+    </main>
+
+    <footer>Built with your search & download APIs</footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Link to external JS -->
+  <script src="app.js"></script>
+</body>
+  </html>
