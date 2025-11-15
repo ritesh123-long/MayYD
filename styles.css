@@ -1,0 +1,72 @@
+:root{
+  --bg-1: #071025;
+  --bg-2: #041224;
+  --muted: #98a0b3;
+  --text: #e9f2ff;
+  --accent-1: #7c3aed;
+  --accent-2: #3b82f6;
+  --glass: rgba(255,255,255,0.025);
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.45);
+  --shadow-strong: 0 18px 50px rgba(4,8,20,0.6);
+  --radius: 12px;
+  --gap: 14px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  -webkit-font-smoothing:antialiased;
+  background: linear-gradient(180deg,var(--bg-1), var(--bg-2));
+  color:var(--text);
+  padding:18px;
+}
+
+.app{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+
+header{
+  display:flex;gap:16px;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);box-shadow:var(--shadow-soft);
+}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:52px;height:52px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));font-weight:700}
+.title{margin:0;font-size:1.05rem}
+.subtitle{margin:0;color:var(--muted);font-size:0.9rem}
+
+.search-wrap{margin-left:auto;display:flex;gap:8px;align-items:center;min-width:300px}
+.search-box{display:flex;gap:8px;align-items:center;padding:10px 12px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02);flex:1}
+.search-box input{border:0;background:transparent;color:inherit;padding:6px;outline:none;width:100%}
+.btn{padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;font-weight:700;cursor:pointer}
+
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.muted{color:var(--muted)}
+.controls-right{display:flex;gap:10px;align-items:center}
+.small{background:transparent;border-radius:8px;padding:6px 8px;border:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+
+.grid{display:grid;gap:16px;margin-top:12px}
+@media (max-width:599px){.grid{grid-template-columns:1fr}.search-wrap{flex-direction:column;min-width:unset}}
+@media (min-width:600px) and (max-width:899px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+.card{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);transition:transform .12s;box-shadow:var(--shadow-soft)}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-strong)}
+.thumb{width:150px;height:86px;border-radius:8px;overflow:hidden;background:#000;flex-shrink:0}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.meta{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
+.meta h3{margin:0;font-size:1rem}
+.meta .sub{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:0.9rem}
+.chip{background:rgba(255,255,255,0.02);padding:6px 8px;border-radius:999px;color:var(--muted);font-size:0.85rem}
+
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.link{padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);font-weight:600}
+.download-row{display:flex;gap:8px;align-items:center}
+.quality{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);font-weight:600}
+.download-btn{padding:10px 12px;border-radius:8px;border:0;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;font-weight:700;cursor:pointer;min-width:120px}
+.copy-btn{padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);font-weight:700;cursor:pointer}
+
+.bottom-row{margin-top:12px;display:flex;gap:8px;align-items:center}
+.hidden{display:none}
+
+.toast{position:fixed;right:18px;bottom:18px;background:rgba(0,0,0,0.6);padding:10px 14px;border-radius:10px;color:white;box-shadow:0 10px 30px rgba(0,0,0,0.6);z-index:9999;opacity:0;transform:translateY(20px);transition:all .22s}
+.toast.show{opacity:1;transform:translateY(0)}
+footer{margin-top:12px;color:var(--muted);text-align:center;font-size:0.9rem}
